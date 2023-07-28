@@ -1,0 +1,24 @@
+package JDBCDem.EMS;
+import java.sql.SQLException;
+
+import com.ems.dao.EmployeeDao;
+import com.ems.dao.EmployeeDaoImpl;
+import com.ems.entity.Employee;
+
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+    public static void main( String[] args ) throws SQLException
+    {
+        Employee emp=new Employee(123,"Ali",21,"M",98765456,"kerala","02-08-2001");
+        try {
+        	EmployeeDao dao=new EmployeeDaoImpl();
+        }
+        catch(Exception e) {
+        	System.out.println(e);
+        }
+    }
+}

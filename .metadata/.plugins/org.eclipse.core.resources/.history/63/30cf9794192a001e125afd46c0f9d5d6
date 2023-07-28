@@ -1,0 +1,17 @@
+package JDBCDemo.SMS;
+
+import java.sql.SQLException;
+
+import com.sms.dao.StudentDaoImpl;
+
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+    public static void main( String[] args ) throws SQLException
+    {
+        StudentDaoImpl dao=new StudentDaoImpl();
+    }
+}

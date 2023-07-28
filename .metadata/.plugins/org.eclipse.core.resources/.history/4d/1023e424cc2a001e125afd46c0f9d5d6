@@ -1,0 +1,50 @@
+package JDBCDemo.SMS;
+
+import java.sql.SQLException;
+
+import com.sms.dao.StudentDao;
+import com.sms.dao.StudentDaoImpl;
+import com.sms.entity.Student;
+import java.util.Scanner;
+
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+    public static void main( String[] args ) throws SQLException
+    {
+    	Scanner s=new Scanner(System.in);
+    	System.out.println("Admin or user");
+    	String input=s.next();
+    	if(input.equalsIgnoreCase("admin")) {
+    		System.out.println("1.Add student");
+    		System.out.println("2.delete student by id");
+    		System.out.println("3.update student by id");
+    		System.out.println("4.display student");
+    	}
+    	else {
+    		System.out.println("4.display student");
+    	}
+    	
+    	 Student st=new Student(116,"musk",32,"rk@gmail.com","kerala");
+         
+         	StudentDaoImpl dao=new StudentDaoImpl();
+         	System.out.println("Enter your choice");
+         	int ch=s.nextInt();
+         	switch(ch) {
+         	case 1:dao.addStudent(st);
+         	break;
+         	case 2:dao.deleteStudentById(114);
+         	break;
+         	case 3:dao.updateStudentById(112, "dhoni");
+         	break;
+         	case 4:dao.getStudent();
+         	break;
+         	default:System.out.println("Invalid chice");
+         	}
+         	
+        
+    }
+}

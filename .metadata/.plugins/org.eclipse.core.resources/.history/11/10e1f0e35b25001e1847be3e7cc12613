@@ -1,0 +1,69 @@
+package JDBCDem.JDBCConnection;
+import java.sql.*;
+
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+	void addData() {
+		try {
+         	Class.forName("com.mysql.jdbc.Driver");
+         	Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/maindb","root","root");
+         	if(con!=null) {
+         		System.out.println("Successfully connected "+con);
+         	}
+         	else {
+         		System.out.println("not connected");
+         	}
+		  Statement stmt=con.createStatement();
+    	  String sql="insert into employee values(25,'rohit','delhi')";
+    	int i=stmt.executeUpdate(sql);
+    	if(i>0) {
+    		System.out.println("Row inserted");
+    	}
+    	else {
+    		System.out.println("not inserted");
+    	}
+	}
+		catch(Exception e) {
+         	System.out.println("e");
+         }
+	}
+	void updateData() {
+		try {
+         	Class.forName("com.mysql.jdbc.Driver");
+         	Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/maindb","root","root");
+         	if(con!=null) {
+         		System.out.println("Successfully connected "+con);
+         	}
+         	else {
+         		System.out.println("not connected");
+         	}
+		  Statement stmt=con.createStatement();
+    	  String sql="update employee set employee_name='dhoni' where employee_id=25";
+    	int i=stmt.executeUpdate(sql);
+    	if(i>0) {
+    		System.out.println("Row updated");
+    	}
+    	else {
+    		System.out.println("not updated");
+    	}
+	}
+		catch(Exception e) {
+         	System.out.println("e");
+         }
+	}
+	
+    public static void main( String[] args ) throws ClassNotFoundException
+    {
+         	
+         	App a=new App();
+         	a.updateData();
+        
+         	
+    }
+    	 
+}
+

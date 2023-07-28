@@ -1,0 +1,63 @@
+package JDBCDemo.PMS;
+
+import java.util.Scanner;
+
+import com.pms.dao.ProductDaoImpl;
+import com.pms.entity.Product;
+import com.pms.entity.Supplier;
+
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+    public static void main( String[] args )
+    {
+        System.out.println("******XYZ******");
+        Scanner s=new Scanner(System.in);
+        
+        
+        try {
+        ProductDaoImpl dao=new ProductDaoImpl();
+        
+    	System.out.println("Admin or user");
+    	String input=s.next();
+    	if(input.equalsIgnoreCase("admin")) {
+    		System.out.println("1.Add supplier");
+    		System.out.println("2.Add product");
+    		System.out.println("3.update product by id");
+    		System.out.println("4.display product");
+    		System.out.println("5.sort product by id");
+    		System.out.println("6.search product");
+    		System.out.println("Enter your choice");
+         	int ch=s.nextInt();
+         	switch(ch) {
+         	case 1:System.out.println("enter supplier details id,name,phone,email,address");
+         	Supplier sup=new Supplier(s.nextInt(),s.next(),s.nextLong(),s.next(),s.next());
+         	dao.addSupplier(sup);
+         	System.out.println("enter product details id,name,info,quantity,price");
+         	Product pro=new Product(s.nextInt(),s.next(),s.next(),sup,s.nextInt(),s.nextDouble());
+         	dao.addProduct(pro);
+         	break;
+         	case 3:dao.updateProduct(11, 3000);
+         	break;
+         	case 4:dao.getProduct();
+         	break;
+         	case 5:dao.sortProductBySku();
+         	break;
+         	case 6:dao.getProductBySku(13);
+         	break;
+         	default:System.out.println("Invalid choice");
+         	}
+         	
+    	}
+    	else {
+    		dao.getProductBySku(13);
+    	}
+        }
+        catch(Exception e) {
+        	System.out.println(e);
+        }
+    }
+}

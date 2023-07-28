@@ -1,0 +1,10 @@
+package com.ems.dao;
+
+import com.ems.entity.Employee;
+
+public interface EmployeeDao {
+	boolean addEmployee(Employee emp);
+	boolean getEmployeelist();
+	void getEmployeeID(int id);
+
+}

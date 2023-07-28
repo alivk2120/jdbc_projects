@@ -1,0 +1,26 @@
+package JDBCDem.JDBCConnect;
+import java.sql.*;
+
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+    public static void main( String[] args ) throws ClassNotFoundException
+    {
+        try {
+        	Class.forName("com.mysql.jdbc.Driver");
+        	Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/maindb","root","root");
+        	if(con!=null) {
+        		System.out.println("Successfully connected "+con);
+        	}
+        	else {
+        		System.out.println("not connected");
+        	}
+        }
+        catch(Exception e) {
+        	System.out.println("e");
+        }
+    }
+}

@@ -1,0 +1,28 @@
+package JDBCDemo.SMS;
+
+import java.sql.SQLException;
+
+import com.sms.dao.StudentDao;
+import com.sms.dao.StudentDaoImpl;
+import com.sms.entity.Student;
+import com.sms.dao.StudentDaoImpl;
+import com.sms.entity.Student;
+
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+    public static void main( String[] args ) throws SQLException
+    {
+    	 Student st=new Student(111,"virat",32,"vk@gmail.com","kerala");
+         try {
+         	StudentDaoImpl dao=new StudentDaoImpl();
+         	int result=dao.addStudent(st);
+         }
+         catch(Exception e) {
+         	System.out.println(e);
+         }
+    }
+}

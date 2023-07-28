@@ -1,0 +1,5 @@
+package com.ems.dao;
+import com.ems.entity.Employee;
+public class EmployeeDaoImpl implements EmployeeDao{
+
+}

@@ -1,0 +1,29 @@
+package JDBCDemo.PMS;
+
+import com.pms.dao.ProductDaoImpl;
+import com.pms.entity.Product;
+import com.pms.entity.Supplier;
+
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+    public static void main( String[] args )
+    {
+        System.out.println("******XYZ******");
+        Supplier sup=new Supplier(205,"Ali",65437654,"iqu@gmail.com","talakala");
+        Product pro=new Product(14,"phone","Comic",sup,2,2000);
+        try {
+        	ProductDaoImpl dao=new ProductDaoImpl();
+        	dao.addSupplier(sup);
+        	dao.addProduct(pro);
+        	dao.updateProduct(11,3000);
+        	dao.getProductBySku(13);
+        }
+        catch(Exception e) {
+        	System.out.println(e);
+        }
+    }
+}

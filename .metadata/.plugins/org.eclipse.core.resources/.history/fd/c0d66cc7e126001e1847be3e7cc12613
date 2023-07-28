@@ -1,0 +1,42 @@
+package com.ems.dao;
+import com.ems.entity.Employee;
+import com.mysql.jdbc.PreparedStatement;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class EmployeeDaoImpl implements EmployeeDao{
+	Connection con=null;
+	PreparedStatement pstmt;
+	public EmployeeDaoImpl() throws SQLException{
+		con=DriverManager.getConnection("jdbc:mysql://localhost:3306/maindb","root","root");
+	}
+
+	@Override
+	public boolean addEmployee(Employee emp) {
+		// TODO Auto-generated method stub
+		try {
+			pstmt=(PreparedStatement) con.prepareStatement("insert into employee values(?,?,?,?,?,?,?)");
+			pstmt.setInt(1, emp.getEid());
+			pstmt.setString(2, emp.getEname());
+			pstmt.setInt(3, emp.getAge());
+			pstmt.setString(4, emp.getGender());
+			pstmt.setLong(5, emp.getPhoneno());
+			pstmt.setString(6, emp.getAddress());
+			pstmt.setString(7, emp.getDate_of_joining());
+			pstmt.executeUpdate();
+		}
+		catch(Exception e) {
+			System.out.println(e);
+		}
+		return true;
+	}
+
+	@Override
+	public boolean getEmployeelist() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+}

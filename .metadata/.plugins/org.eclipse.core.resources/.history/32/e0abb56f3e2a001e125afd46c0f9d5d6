@@ -1,0 +1,35 @@
+package JDBCDemo.SMS;
+
+import java.sql.SQLException;
+
+import com.sms.dao.StudentDao;
+import com.sms.dao.StudentDaoImpl;
+import com.sms.entity.Student;
+
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+    public static void main( String[] args ) throws SQLException
+    {
+    	 Student st=new Student(114,"Ali",32,"rk@gmail.com","kerala");
+         try {
+         	StudentDaoImpl dao=new StudentDaoImpl();
+         	int result=dao.addStudent(st);
+         	if(result>0) {
+         		System.out.println("row added");
+         	}
+         	else {
+         		System.out.println("Not added");
+         	}
+         	dao.getStudent();
+         	//dao.updateStudentById(112,"kohli");
+         	dao.deleteStudentById(110);
+         }
+         catch(Exception e) {
+         	System.out.println(e);
+         }
+    }
+}
